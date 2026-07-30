@@ -1,0 +1,402 @@
+/* Studio rapido: estensione non distruttiva dell'editor esistente. */
+.studio-strip {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid #27252d;
+  border-left: 0;
+  border-right: 0;
+  background: #0d0e12;
+  color: #f6f0e4;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.studio-strip button,
+.studio-strip select,
+.studio-dialog button,
+.studio-dialog input,
+.studio-dialog select {
+  font: inherit;
+}
+
+.studio-scene-jump,
+.studio-layer-switch,
+.studio-color-tools,
+.studio-target-switch,
+.studio-palette,
+.studio-strip-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+
+.studio-scene-jump {
+  padding-right: 9px;
+  border-right: 1px solid #2d2b33;
+}
+
+.studio-scene-jump button,
+.studio-strip-actions button,
+.studio-layer-switch button,
+.studio-target-switch button {
+  min-height: 30px;
+  border: 1px solid #34313a;
+  border-radius: 6px;
+  background: #15161c;
+  color: #d8d2c7;
+  padding: 5px 9px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.studio-scene-jump button {
+  width: 30px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.studio-scene-jump select {
+  width: clamp(150px, 17vw, 245px);
+  min-height: 30px;
+  border: 1px solid #34313a;
+  border-radius: 6px;
+  background: #111217;
+  color: #f6f0e4;
+  padding: 4px 8px;
+}
+
+.studio-layer-switch button,
+.studio-target-switch button {
+  font-size: 11px;
+  letter-spacing: .02em;
+  padding-inline: 8px;
+}
+
+.studio-layer-switch button.is-active,
+.studio-target-switch button.is-active,
+.studio-dialog button.is-active {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  background: #1d1a11;
+}
+
+.studio-color-tools {
+  padding-left: 9px;
+  border-left: 1px solid #2d2b33;
+}
+
+.studio-palette {
+  gap: 4px;
+}
+
+.studio-swatch {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #4a4650;
+  border-radius: 50%;
+  background: var(--studio-swatch);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+}
+
+.studio-swatch:hover,
+.studio-swatch:focus-visible {
+  transform: translateY(-1px);
+  border-color: #f6f0e4;
+}
+
+.studio-color-picker {
+  position: relative;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #5b5661;
+  border-radius: 50%;
+  color: #fbbf24;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.studio-color-picker input {
+  position: absolute;
+  inset: -8px;
+  width: 44px;
+  height: 44px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.studio-strip-actions {
+  margin-left: auto;
+}
+
+.studio-strip-actions button.is-primary,
+.studio-dialog .is-primary {
+  border-color: #fbbf24;
+  background: #fbbf24;
+  color: #171419;
+  font-weight: 800;
+}
+
+.studio-dialog {
+  width: min(620px, calc(100vw - 28px));
+  max-height: min(760px, calc(100vh - 28px));
+  padding: 0;
+  border: 1px solid #393640;
+  border-radius: 10px;
+  background: #0d0e12;
+  color: #f6f0e4;
+  box-shadow: 0 22px 80px rgba(0,0,0,.55);
+}
+
+.studio-dialog::backdrop {
+  background: rgba(7, 7, 10, .76);
+}
+
+.studio-dialog header,
+.studio-dialog footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #111217;
+}
+
+.studio-dialog header {
+  border-bottom: 1px solid #2d2b33;
+}
+
+.studio-dialog footer {
+  border-top: 1px solid #2d2b33;
+}
+
+.studio-dialog header div {
+  display: grid;
+  gap: 3px;
+}
+
+.studio-dialog header strong {
+  font-size: 17px;
+}
+
+.studio-dialog header span,
+.studio-dialog footer span,
+.studio-dialog p {
+  color: #a9a39a;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.studio-dialog header > button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.studio-dialog section {
+  padding: 16px;
+  border-bottom: 1px solid #26242b;
+}
+
+.studio-dialog button,
+.studio-dialog input,
+.studio-dialog select {
+  min-height: 34px;
+  border: 1px solid #3b3842;
+  border-radius: 6px;
+  background: #15161c;
+  color: #f6f0e4;
+  padding: 6px 10px;
+}
+
+.studio-dialog button {
+  cursor: pointer;
+}
+
+.studio-section-title {
+  margin-bottom: 9px;
+  color: #fbbf24;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.studio-look-presets,
+.studio-fx-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.studio-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.studio-field-grid label,
+.studio-full-field,
+.studio-range {
+  display: grid;
+  gap: 6px;
+  color: #c9c3ba;
+  font-size: 12px;
+}
+
+.studio-range {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.studio-range input {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 24px;
+  padding: 0;
+  accent-color: #fbbf24;
+}
+
+.studio-range output {
+  color: #fbbf24;
+  font-variant-numeric: tabular-nums;
+}
+
+.studio-wide-button {
+  width: 100%;
+}
+
+.studio-carry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.studio-carry-grid label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid #34313a;
+  border-radius: 7px;
+  background: #14151a;
+  cursor: pointer;
+}
+
+.studio-carry-grid input,
+.studio-check-line input {
+  min-height: 0;
+  accent-color: #fbbf24;
+}
+
+.studio-check-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: #d8d2c7;
+  font-size: 13px;
+}
+
+#studio-shortcut-rows {
+  display: grid;
+  gap: 7px;
+}
+
+.studio-shortcut-row {
+  display: grid;
+  grid-template-columns: 1fr 165px;
+  align-items: center;
+  gap: 12px;
+  color: #d8d2c7;
+  font-size: 13px;
+}
+
+.studio-shortcut-row input {
+  text-align: center;
+  color: #fbbf24;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  cursor: pointer;
+}
+
+.studio-pinned {
+  outline: 2px solid rgba(251, 191, 36, .38);
+  outline-offset: 7px;
+}
+
+body[data-studio-layer-filter="scene"] #stage .stage-object:not([data-studio-layer="scene"]),
+body[data-studio-layer-filter="characters"] #stage .stage-object:not([data-studio-layer="characters"]),
+body[data-studio-layer-filter="props"] #stage .stage-object:not([data-studio-layer="props"]),
+body[data-studio-layer-filter="drawing"] #stage .stage-object:not([data-studio-layer="drawing"]),
+body[data-studio-layer-filter="effects"] #stage .stage-object:not([data-studio-layer="effects"]) {
+  opacity: .1 !important;
+  pointer-events: none;
+  filter: grayscale(.9) !important;
+}
+
+body[data-studio-layer-filter]:not([data-studio-layer-filter="all"]) #stage .stage-object.is-selected {
+  opacity: 1 !important;
+  pointer-events: auto;
+  filter: none !important;
+}
+
+.output-body .studio-runtime-visual,
+.output-body .stage-visual-layer {
+  pointer-events: none;
+}
+
+@media (max-width: 1180px) {
+  .studio-strip {
+    flex-wrap: wrap;
+  }
+
+  .studio-strip-actions {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .studio-strip {
+    padding: 6px;
+    gap: 7px;
+  }
+
+  .studio-layer-switch,
+  .studio-color-tools {
+    width: max-content;
+  }
+
+  .studio-look-presets,
+  .studio-fx-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .studio-carry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .studio-shortcut-row {
+    grid-template-columns: 1fr 125px;
+  }
+}
+
+/* La barra aggiunge una riga reale, senza comprimere statusbar o palco. */
+.stage-column {
+  grid-template-rows: 44px auto minmax(0, 1fr) 30px;
+}
+
+.stage-column .stage-frame {
+  width: min(100%, calc((100vh - 218px) * 16 / 9));
+}
