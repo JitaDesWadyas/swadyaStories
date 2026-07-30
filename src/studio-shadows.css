@@ -1,0 +1,20 @@
+.studio-shadow-controls {
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px solid #2d2b33;
+}
+
+#studio-ground-shadow-selection {
+  margin-top: 9px;
+}
+
+#studio-ground-shadow-selection.is-active {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  background: #1d1a11;
+}
+
+.stage-ground-shadows,
+.output-body .stage-ground-shadows {
+  pointer-events: none;
+}
