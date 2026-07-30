@@ -98,6 +98,8 @@ function decorateSvgRuntime(svg, explicitSceneId = null) {
   if (!svg) return;
   const meta = readMeta();
   const sceneId = explicitSceneId || activeSceneId();
+  const background = meta.sceneBackgrounds[sceneId];
+  if (background) svg.style.background = background;
   const lookup = objectLookup();
 
   svg.querySelectorAll('.stage-object[data-object-id]').forEach(node => {
