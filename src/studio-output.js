@@ -1,5 +1,3 @@
-import { decorateSvgRuntime } from './studio.js';
-
 const CHANNEL_NAME = 'stories-in-swadya-output';
 
 export function startStudioOutput() {
@@ -9,7 +7,7 @@ export function startStudioOutput() {
   let frame = 0;
   const refresh = () => {
     cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => decorateSvgRuntime(stage));
+    frame = requestAnimationFrame(() => window.SwadyaStudio.decorateSvgRuntime(stage));
   };
 
   const observer = new MutationObserver(mutations => {
