@@ -1,4 +1,4 @@
-import { installStudioStorageBridge, startStudio } from './studio.js';
+const { installStudioStorageBridge, startStudio } = window.SwadyaStudio;
 
 installStudioStorageBridge();
 await import('./main.js');
