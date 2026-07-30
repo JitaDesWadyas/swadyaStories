@@ -1,6 +1,5 @@
-import { installStudioStorageBridge } from './studio.js';
 import { startStudioOutput } from './studio-output.js';
 
-installStudioStorageBridge();
+window.SwadyaStudio.installStudioStorageBridge();
 await import('./output.js');
 startStudioOutput();
